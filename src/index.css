@@ -5,9 +5,163 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(248, 248, 248);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.app{
+  display:flex;
+  flex-direction: column;
+  padding: 5%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.preview{
+  width:816px;
+  height:1056px;
+}
+
+
+
+/* === Preview === */
+
+.preview{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+
+header{
+  background-color: #1E1E1E;
+  color:white;
+  text-align:center;
+  padding: 20px;
+}
+
+#applicant-name, #applicant-position{
+  margin:0;
+}
+
+#applicant-name{
+  margin-bottom:10px;
+  font-size: 3rem;
+}
+
+
+#applicant-position{
+  font-weight: 300;
+}
+
+main{
+  display:flex;
+  height: 100%;
+}
+
+.profile-section{
+  flex: 0 0 204px;
+  padding: 0 20px;
+  background-color: #D9D9D9;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.profile-section > *{
+    overflow-wrap: break-word; 
+}
+
+.profile-picture{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profile-picture > img{
+  border-radius: 150px;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.profile-summary{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.contacts-content{
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contacts-row > h3, .contacts-row > p{
+  margin:0;
+}
+
+
+.qualification-section{
+  padding: 0 30px;
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.qualification-section > div + div{
+  border-top: 2px solid gray;
+}
+
+.education > h1{
+  margin:0;
+  margin-top: 20px;
+}
+
+
+.education-content > div + div{
+  border-top:1px solid lightgray;
+}
+
+/* === End Preview === */
+
+.form{
+  width:816px;
+  height: auto;
+}
+
+
+.profile-form, .college-input-fields, .highSchool-input-fields, .skills-form, .experience-form{
+  display:flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-form > input,
+.profile-form > textarea,
+.skills-form > textarea,
+.experience-form > textarea,
+.college-input-fields > input, .highSchool-input-fields > input{
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  border-radius:5px;
+  border:1px solid black;
+}
+
+.profile-form > textarea{
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 1024px){
+  .app{
+    flex-direction: row;
+  }
+
 }

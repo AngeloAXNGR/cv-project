@@ -1,23 +1,81 @@
-import logo from './logo.svg';
 import './App.css';
 
+import React from 'react';
+import Form from './components/Form';
+import Preview from './components/Preview';
+import emptyAvatar from './images/empty-avatar.png';
+
+import { useReactToPrint } from 'react-to-print';
+
 function App() {
+  const [formData, setFormData] = React.useState(
+    {
+      firstName:'', 
+      lastName:'',
+      title:'',
+      profilePicture: emptyAvatar,
+      phone:'',
+      email:'',
+      linkedin:'',
+      address:'',
+      about:'',
+      degree:'',
+      universityName:'',
+      collegeStart:'',
+      collegeEnd: '',
+      hSDegree:'',
+      hSName:'',
+      hSStart:'',
+      hSEnd:'',
+      skills:'',
+      experiences:'',
+    }
+  );
+
+
+
+  const componentRef = React.useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'CV File',
+  })
+
+ 
+
+
+  const handleChange = (event) =>{
+    const {name, type, checked, value} = event.target;
+    setFormData(prevData => {
+      return {...prevData,
+        [name] : type === "checkbox" ? checked : value
+      }
+    })
+  }
+
+  const handleImage = (event)=>{
+    const file = event.target.files[0]
+    const reader = new FileReader()
+    reader.onload = () => {
+      setFormData(prevData => {
+        return {...prevData, profilePicture: reader.result}
+      })
+    }
+    reader.readAsDataURL(file)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Form
+        formData={formData}
+        handleChange={handleChange}
+        handleImage={handleImage}
+        handlePrint={handlePrint}
+      />
+      <Preview
+        ref={componentRef}
+        data={formData}
+      />
     </div>
   );
 }
