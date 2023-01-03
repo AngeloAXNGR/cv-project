@@ -15,12 +15,8 @@ const Form = ({handleChange, handleImage, handlePrint, formData}) =>{
         handleChange={(e) => handleChange(e)}
         formData={formData}
       />
-
-      
-      <button onClick={handlePrint}>Print</button>
+      <button className="print-button" onClick={handlePrint}>Print</button>
       </div>
-
-
   )
 }
 

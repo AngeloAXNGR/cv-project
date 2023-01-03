@@ -13,11 +13,23 @@ code {
     monospace;
 }
 
-.app{
+header{
+  background-color:#1E1E1E;
+  margin:0 auto;
+  color:white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#application-title{
+  font-size:3.5rem;
+}
+
+.main-content{
   display:flex;
   flex-direction: column;
   padding: 5%;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 50px;
 }
@@ -37,10 +49,12 @@ code {
   justify-content: space-between;
   background-color: white;
   box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  position:sticky;
+  top:0;
 }
 
 
-header{
+.cv-header{
   background-color: #1E1E1E;
   color:white;
   text-align:center;
@@ -137,36 +151,106 @@ main{
 
 /* === End Preview === */
 
+.hidden{
+  opacity: 0;
+  background: transparent;
+
+}
+
+.upload-photo{
+  position:relative;
+  background-color: white;
+  padding: 5px;
+  border:1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-photo > input{
+  margin:0;
+  width:100%;
+  cursor: pointer;
+}
+
+.upload-photo-label{
+  position: absolute;
+  cursor: pointer;
+  font-size: 1.5rem;
+  left:1%;
+  top:0;
+  margin:0;
+  pointer-events: none;
+  /* color:gray; */
+  font-weight: bold;
+}
+
 .form{
   width:816px;
   height: auto;
+  padding: 0 30px 30px 30px;
+  border-radius:10px;
+  box-shadow:0 0 3px rgba(0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap:30px;
 }
 
-
-.profile-form, .college-input-fields, .highSchool-input-fields, .skills-form, .experience-form{
+.input-fields{
   display:flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
-.profile-form > input,
-.profile-form > textarea,
-.skills-form > textarea,
-.experience-form > textarea,
-.college-input-fields > input, .highSchool-input-fields > input{
-  padding: 5px 10px;
+.input-fields > input,
+.input-fields > textarea{
+  padding: 5px;
   font-size: 1.5rem;
   border-radius:5px;
-  border:1px solid black;
+  border: 1px solid gray;
 }
 
-.profile-form > textarea{
-  font-size: 1rem;
+.input-fields > h2{
+  margin:0;
+}
+
+.qualification-form{
+  display:flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.education-form{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.education-form > h1{
+  margin:0;
+}
+
+.print-button{
+  padding: 10px;
+  font-size: 1.5rem;
+  background-color:#1DA1F2;
+  border:none;
+  border-radius: 5px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.print-button:hover{
+  background-color:#098ada; 
 }
 
 @media only screen and (min-width: 1024px){
-  .app{
+  .main-content{
     flex-direction: row;
+  }
+
+  .form{
+    width:45%;
   }
 
 }
