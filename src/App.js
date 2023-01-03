@@ -17,6 +17,7 @@ function App() {
       phone:'',
       email:'',
       linkedin:'',
+      github:'',
       address:'',
       about:'',
       degree:'',

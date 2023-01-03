@@ -41,6 +41,7 @@ const Preview = React.forwardRef(({data}, ref) =>{
               phoneNumber={data.phone}
               email={data.email}
               linkedin={data.linkedin}
+              github={data.github}
               address={data.address}
             />
 

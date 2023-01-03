@@ -1,4 +1,4 @@
-const Contact = ({phoneNumber, email, linkedin, address}) =>{
+const Contact = ({phoneNumber, email, linkedin, github, address}) =>{
   return(
     <div className="contacts">
       <h1>Contacts</h1>
@@ -11,10 +11,16 @@ const Contact = ({phoneNumber, email, linkedin, address}) =>{
           <h3>Email:</h3>
           <p>{email}</p>
         </div>
-        <div className="contacts-row">
+        {linkedin !== '' && <div className="contacts-row">
           <h3>LinkedIn:</h3>
           <p>{linkedin}</p>
-        </div>
+        </div>}
+
+        {github !== '' && <div className="contacts-row">
+          <h3>Github:</h3>
+          <p>{github}</p>
+        </div>}
+
         <div className="contacts-row">
           <h3>Address:</h3>
           <p>{address}</p>

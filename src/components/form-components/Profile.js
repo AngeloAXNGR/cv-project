@@ -52,9 +52,18 @@ const Profile = ({handleChange, handleImage, formData}) =>{
           type="text"
           name="linkedin"
           value={formData.linkedin}
-          placeholder="LinkedIn Profile"
+          placeholder="LinkedIn Profile (Optional)"
           onChange={(e) => handleChange(e)}
         />
+
+        <input
+          type="text"
+          name="github"
+          value={formData.github}
+          placeholder="Github Profile (Optional)"
+          onChange={(e) => handleChange(e)}
+        />
+
         <input
           type="text"
           name="address"
