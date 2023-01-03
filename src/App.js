@@ -66,16 +66,21 @@ function App() {
 
   return (
     <div className="app">
-      <Form
-        formData={formData}
-        handleChange={handleChange}
-        handleImage={handleImage}
-        handlePrint={handlePrint}
-      />
-      <Preview
-        ref={componentRef}
-        data={formData}
-      />
+      <header>
+        <h1 id="application-title">CV Generator</h1>
+      </header>
+      <div className="main-content">
+        <Form
+          formData={formData}
+          handleChange={handleChange}
+          handleImage={handleImage}
+          handlePrint={handlePrint}
+        />
+        <Preview
+          ref={componentRef}
+          data={formData}
+        />
+      </div>
     </div>
   );
 }
