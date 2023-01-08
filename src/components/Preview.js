@@ -6,61 +6,64 @@ import Education from './preview-components/Education';
 import Skills from './preview-components/Skills';
 import Experience from './preview-components/Experience';
 
+import FormContext from '../contexts/FormContext';
+import { useContext } from 'react';
 
 
 
 
-const Preview = React.forwardRef(({data}, ref) =>{
+const Preview = React.forwardRef(() =>{
   const [skillData, setSkillData] = React.useState([]);
   const [experienceData, setExperienceData] = React.useState([]);
 
-  
-  React.useEffect(() =>{
-    setSkillData(data.skills.split(','));
-  },[data.skills])
+  const {formData, componentRef} = useContext(FormContext);
 
   React.useEffect(() =>{
-    setExperienceData(data.experiences.split(','));
-  },[data.experiences])
+    setSkillData(formData.skills.split(','));
+  },[formData.skills])
+
+  React.useEffect(() =>{
+    setExperienceData(formData.experiences.split(','));
+  },[formData.experiences])
 
   return(
-    <div className="preview" ref={ref}>
+    <div className="preview"  ref={componentRef}>
       <Header
-        applicantName={`${data.firstName} ${data.lastName}`}
-        applicantTitle={data.title}
+        applicantName={`${formData.firstName} ${formData.lastName}`}
+        applicantTitle={formData.title}
       />
 
       <main>
         <div className="profile-section">
           <div className="profile-picture">
-            <img src={data.profilePicture} alt="" />
+            <img src={formData.profilePicture} alt="" />
           </div>
 
           <div className="profile-summary">
             <Contact
-              phoneNumber={data.phone}
-              email={data.email}
-              linkedin={data.linkedin}
-              github={data.github}
-              address={data.address}
+              phoneNumber={formData.phone}
+              email={formData.email}
+              linkedin={formData.linkedin}
+              github={formData.github}
+              address={formData.address}
             />
 
             <About
-              about={data.about}
+              about={formData.about}
             />
           </div>
         </div>
 
         <div className="qualification-section">
           <Education
-            degree={data.degree}
-            universityName={data.universityName}
-            collegeStart={data.collegeStart}
-            collegeEnd={data.collegeEnd}
-            hSDegree={data.hSDegree}
-            hSName={data.hSName}
-            hSStart={data.hSStart}
-            hSEnd={data.hSEnd}
+            degree={formData.degree}
+            universityName={formData.universityName}
+            collegeStart={formData.collegeStart}
+            collegeEnd={formData.collegeEnd}
+            hSDegree={formData.hSDegree}
+            hSName={formData.hSName}
+            hSStart={formData.hSStart}
+            hSEnd={formData.hSEnd}
           />
 
           <Skills skills={skillData}/>

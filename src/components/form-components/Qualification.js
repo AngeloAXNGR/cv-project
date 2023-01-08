@@ -1,4 +1,8 @@
-const Qualification = ({handleChange, formData}) =>{
+import { useContext } from "react";
+import FormContext from "../../contexts/FormContext";
+
+const Qualification = () =>{
+  const {formData, handleChange} = useContext(FormContext);
   return(
     <div className="qualification-form">
       <div className="education-form">

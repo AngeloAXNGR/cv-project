@@ -1,4 +1,10 @@
-const Profile = ({handleChange, handleImage, formData}) =>{
+import { useContext } from "react";
+import FormContext from "../../contexts/FormContext";
+
+const Profile = () =>{
+  const {formData, handleChange, handleImage} = useContext(FormContext);
+
+  console.log(formData);
   return(
     <div className="profile-form">
       <h1>Personal Information</h1>
